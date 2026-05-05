@@ -1,0 +1,59 @@
+{% extends 'myapp/auth_base.html' %}
+
+{% block title %}Login | StarAdmin{% endblock %}
+
+{% block content %}
+
+<div class="min-vh-100 d-flex align-items-center justify-content-center">
+    <div class="card" style="max-width: 400px; width: 100%; border-radius: 16px;">
+        
+        <div class="card-header bg-white border-0 text-center pt-4 pb-3">
+            <div class="d-flex align-items-center justify-content-center gap-2 mb-2">
+                <span style="font-size: 28px; color: #3b82f6;">★</span>
+                <h3 class="mb-0 fw-bold text-dark">StarAdmin</h3>
+            </div>
+            <p class="text-muted mb-0">Sign in to your account</p>
+        </div>
+
+        <div class="card-body p-4">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+                        {{ message }}
+                        <button type="button" class="btn-close btn-close-sm" data-bs-dismiss="alert"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label class="form-label">Username or Email</label>
+                    <input type="text" name="username" class="form-control" required autofocus>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <div class="input-group">
+                        <input type="password" name="password" id="password" class="form-control" required>
+                        <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('password')">
+                            <i class="fa fa-eye" id="password_icon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+
+            <div class="text-center mt-4">
+                <p class="mb-0">
+                    Don't have an account? 
+                    <a href="{% url 'register' %}" class="text-primary fw-medium">Register</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
