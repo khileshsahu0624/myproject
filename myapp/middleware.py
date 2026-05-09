@@ -9,7 +9,7 @@ class LoginRequiredMiddleware:
 
     def __call__(self, request):
         # List of URLs that should be accessible without login
-        public_urls = [reverse('login'), reverse('register'), '/admin/']
+        public_urls = [reverse('login'), reverse('register'), reverse('home'), '/admin/']
         
         if not request.user.is_authenticated:
             if request.path not in public_urls and not request.path.startswith('/admin/'):

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow - Task Management System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    body { 
+      font-size: 14px; 
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    h1 { font-size: 28px; line-height: 1.2; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 18px; }
+
+    .card-hover { 
+      transition: all 0.4s ease; 
+    }
+    .card-hover:hover { 
+      transform: translateY(-12px); 
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); 
+    }
+    .hero-bg { 
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); 
+    }
+    .nav-link {
+      position: relative;
+    }
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #2563eb;
+      transition: all 0.3s;
+    }
+    .nav-link:hover:after { width: 100%; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-700">
+
+  <!-- Navbar -->
+  <nav class="bg-white border-b sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-list-check text-3xl text-blue-600"></i>
+        <span class="text-2xl font-bold">TaskFlow</span>
+      </div>
+
+      <div class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="#features" class="nav-link hover:text-blue-600">Features</a>
+        <a href="#solutions" class="nav-link hover:text-blue-600">Solutions</a>
+        <a href="#pricing" class="nav-link hover:text-blue-600">Pricing</a>
+        <a href="#blog" class="nav-link hover:text-blue-600">Blog</a>
+      </div>
+
+      <div class="flex items-center gap-4 text-sm">
+        <a href="{% url 'login' %}" class="px-5 py-2.5 hover:bg-gray-100 rounded-xl">Login</a>
+        <a href="{% url 'register' %}" class="px-6 py-2.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700">Get Started Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-bg text-white py-20">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="font-bold mb-5">Finish Your Work Without Stress</h1>
+        <p class="text-blue-100 mb-8 text-[15px]">
+          Powerful yet simple task management system for individuals and teams. 
+          Built for speed, clarity, and real productivity.
+        </p>
+        <div class="flex gap-4">
+          <button class="px-8 py-3.5 bg-white text-blue-700 font-medium rounded-2xl text-sm hover:shadow-xl">
+            Start Free Trial →
+          </button>
+          <button class="px-8 py-3.5 border border-white text-white font-medium rounded-2xl text-sm">
+            Watch Demo
+          </button>
+        </div>
+      </div>
+      <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800" 
+           class="rounded-3xl shadow-2xl" alt="Dashboard">
+    </div>
+  </section>
+
+  <!-- Features Section (Big & Rich) -->
+  <section id="features" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="font-bold text-center mb-10">Powerful Features</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-3xl card-hover shadow-sm border">
+          <i class="fa-solid fa-tasks text-5xl text-blue-600 mb-5"></i>
+          <h3 class="font-semibold mb-3">Smart Task Management</h3>
+          <p class="text-gray-600 text-sm">Drag & drop, subtasks, priorities, deadlines, recurring tasks and AI smart suggestions.</p>
+        </div>
+        <div class="bg-white p-8 rounded-3xl card-hover shadow-sm border">
+          <i class="fa-solid fa-users text-5xl text-purple-600 mb-5"></i>
+          <h3 class="font-semibold mb-3">Team Collaboration</h3>
+          <p class="text-gray-600 text-sm">Real-time updates, comments, @mentions, file sharing and activity feed.</p>
+        </div>
+        <div class="bg-white p-8 rounded-3xl card-hover shadow-sm border">
+          <i class="fa-solid fa-chart-bar text-5xl text-emerald-600 mb-5"></i>
+          <h3 class="font-semibold mb-3">Analytics & Reports</h3>
+          <p class="text-gray-600 text-sm">Beautiful dashboards, productivity insights, team performance and export reports.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions -->
+  <section id="solutions" class="py-20 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="font-bold text-center mb-10">Solutions for Everyone</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-10 rounded-3xl card-hover text-center">
+          <i class="fa-solid fa-user text-5xl text-blue-600 mb-5"></i>
+          <h3 class="font-semibold mb-3">Individuals & Freelancers</h3>
+          <p class="text-gray-600 text-sm">Personal productivity, goal tracking and daily task management.</p>
+        </div>
+        <div class="bg-white p-10 rounded-3xl card-hover text-center">
+          <i class="fa-solid fa-building text-5xl text-purple-600 mb-5"></i>
+          <h3 class="font-semibold mb-3">Startups & Small Teams</h3>
+          <p class="text-gray-600 text-sm">Fast collaboration, project tracking and transparent workflow.</p>
+        </div>
+        <div class="bg-white p-10 rounded-3xl card-hover text-center">
+          <i class="fa-solid fa-briefcase text-5xl text-emerald-600 mb-5"></i>
+          <h3 class="font-semibold mb-3">Enterprise Teams</h3>
+          <p class="text-gray-600 text-sm">Advanced security, custom workflows, SSO and admin controls.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-20 bg-white">
+    <h2 class="font-bold text-center mb-10">Simple Pricing</h2>
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+      <div class="border p-8 rounded-3xl card-hover text-center">
+        <h3 class="font-semibold text-lg mb-2">Free</h3>
+        <span class="text-4xl font-bold">₹0</span>
+        <p class="text-gray-500 mt-1 text-sm">Forever Free</p>
+      </div>
+      <div class="border-2 border-blue-600 p-8 rounded-3xl card-hover text-center relative">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs px-5 py-1 rounded-full">Popular</div>
+        <h3 class="font-semibold text-lg mb-2">Pro</h3>
+        <span class="text-4xl font-bold">₹499</span>
+        <p class="text-gray-500 text-sm">per month</p>
+      </div>
+      <div class="border p-8 rounded-3xl card-hover text-center">
+        <h3 class="font-semibold text-lg mb-2">Enterprise</h3>
+        <span class="text-3xl font-bold">Custom</span>
+        <p class="text-gray-500 text-sm mt-1">Contact Sales</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-20 bg-blue-600 text-white text-center">
+    <h2 class="font-bold mb-4 text-2xl">Ready to Boost Your Productivity?</h2>
+    <p class="mb-8 text-blue-100 text-sm">Join 25,000+ users who are getting more done every day</p>
+    <button class="px-10 py-4 bg-white text-blue-700 font-medium rounded-2xl text-sm hover:shadow-xl">
+      Start Your Free Trial Today →
+    </button>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-10 text-xs">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <p class="font-bold text-white text-base mb-2">TaskFlow</p>
+      <p>© 2026 TaskFlow. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
